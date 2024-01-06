@@ -1,0 +1,1 @@
+{"name":"Local: demi","url":"c:\\Users\\nisha\\Desktop\\TechDocs\\cp\\cses\\demi.cpp","tests":[{"id":1703511392637,"input":"5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\nisha\\Desktop\\TechDocs\\cp\\cses\\demi.cpp","group":"local","local":true}
