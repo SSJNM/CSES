@@ -14,11 +14,10 @@ int main(){
     }
     vector<ll> dp(sum+1,0);
     dp[0] = 1;
-    for(int j=0;j<=sum;j++){
-        for(int i=0;i<n;i++){
-            if(j>=coins[i] && dp[j-coins[i]] != 0){
-                dp[j] += dp[j-coins[i]] % MOD;
-            }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<=sum;j++){
+            if(j-coins[i]>=0)
+            dp[j] += dp[j-coins[i]] % MOD;
         }
     }
     cout<<dp[sum]%MOD<<endl;
