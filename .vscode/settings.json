@@ -5,6 +5,7 @@
         "numeric": "cpp",
         "string": "cpp",
         "deque": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "*.tcc": "cpp"
     }
 }
