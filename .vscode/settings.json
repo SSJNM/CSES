@@ -7,6 +7,8 @@
         "deque": "cpp",
         "vector": "cpp",
         "*.tcc": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "chrono": "cpp",
+        "span": "cpp"
     }
 }
