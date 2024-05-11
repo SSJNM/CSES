@@ -18,8 +18,8 @@ int main(){
     fast_cin();
     int n,m;
     cin>>n>>m;
-    memset(dp,0,sizeof(dp));
-
+    // memset(dp,INT_MAX,sizeof(dp));    
+    vector<vector<int>> dp(n+1,vector<int>(m+1,INT_MAX));
     for(int i=1;i<=n;i++){
         dp[i][1] = i-1;
     }
@@ -27,37 +27,27 @@ int main(){
     for(int j=1;j<=m;j++){
         dp[1][j] = j-1;
     }
-    int i=2,j=2;
-    while(i<=n && j<=m){
-        if(i<=n){
-            int sz = i;
-            int t = sz;
-            while(t<=m){
-                for(int k=1;k<=sz;k++){
-                    dp[i][t+k] = 1+dp[i][t-sz+k];
-                }
-                t += sz;
+
+    for(int i=2;i<=n;i++){
+        for(int j=2;j<=m;j++){
+            if(i==j) dp[i][j] = 0;
+            else{
+                for(int k=1;k<i;k++){
+                    dp[i][j] = min(dp[i][j],1 + dp[i-k][j] + dp[k][j]);
+                } 
+                for(int k=1;k<j;k++){
+                    dp[i][j] = min(dp[i][j],1 + dp[i][j-k] + dp[i][k]);
+                } 
             }
         }
-        if(j<=m){
-            int sz = j;
-            int t = sz;
-            while(t<=n){
-                for(int k=1;k<=sz;k++){
-                    dp[t+k][j] = 1+dp[t-sz+k][j];
-                }
-                t += sz;
-            }
-        }
-        i++;
-        j++;
     }
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=m;j++){
-            cout<<dp[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-    // cout<<dp[n][m];
+
+    // for(int i=1;i<=n;i++){
+    //     for(int j=1;j<=m;j++){
+    //         cout<<dp[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+    cout<<dp[n][m];
     return 0;
 }
