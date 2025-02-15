@@ -3,3 +3,4 @@
 *.probe
 .cph
 .vscode
+*.dSYM/*
